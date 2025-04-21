@@ -238,10 +238,10 @@ Xrm.Portal = {
           var isMin = true,
             isMax = true;
           if (min != undefined) {
-            isMin = Xrm.Portal.Form.get(cid).getValue() >= min;
+            isMin = Xrm.Portal.Form.get(cid).getValue().replace(/[^0-9\.]/g, '') >= min;
           }
           if (max != undefined) {
-            isMax = Xrm.Portal.Form.get(cid).getValue() <= max;
+            isMax = Xrm.Portal.Form.get(cid).getValue().replace(/[^0-9\.]/g, '') <= max;
           }
           if (!isRequired && Xrm.Portal.Form.get(cid).getValue() == "") return true;
           else return isMin && isMax;
